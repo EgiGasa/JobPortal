@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "5b27a4c6-83cb-4062-b730-c092e34eedbe",
+		"name": "Job_portal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42658031",
+		"_collection_link": "https://www.postman.com/egigasa/workspace/my-workspace/collection/42658031-5b27a4c6-83cb-4062-b730-c092e34eedbe?action=share&source=collection_link&creator=42658031"
+	},
+	"item": [
+		{
+			"name": "getAllUsersByRole",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/job/portal/users/getAllUsersByRole?role=EMPLOYER",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"job",
+						"portal",
+						"users",
+						"getAllUsersByRole"
+					],
+					"query": [
+						{
+							"key": "role",
+							"value": "EMPLOYER"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllJobs",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/job/portal/jobs/getAllJobs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"job",
+						"portal",
+						"jobs",
+						"getAllJobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getReviewsForJob",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/job/portal/reviews/getReviewsForJob/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"job",
+						"portal",
+						"reviews",
+						"getReviewsForJob",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postJob",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Java Developer\", \r\n    \"description\":\"Java Developer\",\r\n    \"salary\": 100,\r\n    \"workModel\":\"REMOTE\",\r\n    \"jobType\":\"PART_TIME\", \r\n    \"postedBy\": {\r\n        \"companyName\":\"Lufthansa\",\r\n        \"username\": \"egigasa\",\r\n        \"firstName\": \"Egi\", \r\n        \"lastName\": \"Gasa\", \r\n        \"role\": \"EMPLOYER\"\r\n    }\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/job/portal/jobs/postJob",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"job",
+						"portal",
+						"jobs",
+						"postJob"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "uploadResume",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fileUrl\":\"http://mycv.com\",\r\n    \"uploadedBy\": {\r\n        \"username\": \"egigasa2\",\r\n        \"firstName\": \"Egi2\", \r\n        \"lastName\": \"Gasa2\", \r\n        \"role\": \"JOB_SEEKER\",\r\n        \"address\":\"Tirane\"\r\n    }\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/job/portal/resumes/uploadResume",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"job",
+						"portal",
+						"resumes",
+						"uploadResume"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addReview",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rating\":1,\r\n    \"reviewTitle\":\"Test\",\r\n    \"comment\":\"Test\",\r\n    \"reviewedBy\": {\r\n        \"companyName\":\"Lufthansa\",\r\n        \"username\": \"egigasa3\",\r\n        \"firstName\": \"Egi3\", \r\n        \"lastName\": \"Gasa3\", \r\n        \"role\": \"EMPLOYER\"\r\n    }, \r\n    \"job\": {\r\n        \"id\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/job/portal/reviews/addReview",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"job",
+						"portal",
+						"reviews",
+						"addReview"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "applyForJob",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"resumeUrl\":\"http://mycv.com\",\r\n    \"currentStatus\":\"PENDING\",\r\n    \"appliedBy\": {\r\n        \"username\": \"jobseeker1\",\r\n        \"firstName\": \"jobSeekerName\", \r\n        \"lastName\": \"jobSeekerSurname\", \r\n        \"role\": \"JOB_SEEKER\",\r\n        \"address\":\"Tirane\"\r\n    }, \r\n    \"job\":{\r\n        \"id\": 1\r\n    }\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/job/portal/applications/applyForJob",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"job",
+						"portal",
+						"applications",
+						"applyForJob"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getJobsByEmployer",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/job/portal/jobs/getJobsByEmployer/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"job",
+						"portal",
+						"jobs",
+						"getJobsByEmployer",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllJobs",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/job/portal/jobs/getAllJobs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"job",
+						"portal",
+						"jobs",
+						"getAllJobs"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Java Developer",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getApplicationsForJob",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/job/portal/applications/getApplicationsForJob/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"job",
+						"portal",
+						"applications",
+						"getApplicationsForJob",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getApplicationsByJobSeeker",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/job/portal/applications/getApplicationsByJobSeeker/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"job",
+						"portal",
+						"applications",
+						"getApplicationsByJobSeeker",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateApplicationStatus",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/job/portal/applications/updateApplicationStatus/1?status=INTERVIEW",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"job",
+						"portal",
+						"applications",
+						"updateApplicationStatus",
+						"1"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "INTERVIEW"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUserById",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/job/portal/users/deleteUser/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"job",
+						"portal",
+						"users",
+						"deleteUser",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
